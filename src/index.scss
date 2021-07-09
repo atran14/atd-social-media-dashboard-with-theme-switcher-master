@@ -1,10 +1,16 @@
+@use "./shared/styles/helpers/" as *;
+
 * {
   box-sizing: border-box;
+  font-family: $ff-inter;
+  font-size: $ff-font-size-default;
 }
 
 html, body {
   margin: 0;
   padding: 0;
+  min-height: 100vh;
+  min-width: 100vw;
 }
 
 body {  
