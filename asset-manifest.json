@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/atd-social-media-dashboard-with-theme-switcher-master/static/css/main.42d4bfd9.chunk.css",
+    "main.js": "/atd-social-media-dashboard-with-theme-switcher-master/static/js/main.e4317620.chunk.js",
+    "main.js.map": "/atd-social-media-dashboard-with-theme-switcher-master/static/js/main.e4317620.chunk.js.map",
+    "runtime-main.js": "/atd-social-media-dashboard-with-theme-switcher-master/static/js/runtime-main.a23c5a13.js",
+    "runtime-main.js.map": "/atd-social-media-dashboard-with-theme-switcher-master/static/js/runtime-main.a23c5a13.js.map",
+    "static/js/2.9d287907.chunk.js": "/atd-social-media-dashboard-with-theme-switcher-master/static/js/2.9d287907.chunk.js",
+    "static/js/2.9d287907.chunk.js.map": "/atd-social-media-dashboard-with-theme-switcher-master/static/js/2.9d287907.chunk.js.map",
+    "index.html": "/atd-social-media-dashboard-with-theme-switcher-master/index.html",
+    "static/css/main.42d4bfd9.chunk.css.map": "/atd-social-media-dashboard-with-theme-switcher-master/static/css/main.42d4bfd9.chunk.css.map",
+    "static/js/2.9d287907.chunk.js.LICENSE.txt": "/atd-social-media-dashboard-with-theme-switcher-master/static/js/2.9d287907.chunk.js.LICENSE.txt",
+    "static/media/icon-down.0c77426d.svg": "/atd-social-media-dashboard-with-theme-switcher-master/static/media/icon-down.0c77426d.svg",
+    "static/media/icon-facebook.30101569.svg": "/atd-social-media-dashboard-with-theme-switcher-master/static/media/icon-facebook.30101569.svg",
+    "static/media/icon-instagram.568b5795.svg": "/atd-social-media-dashboard-with-theme-switcher-master/static/media/icon-instagram.568b5795.svg",
+    "static/media/icon-twitter.a0c5f64d.svg": "/atd-social-media-dashboard-with-theme-switcher-master/static/media/icon-twitter.a0c5f64d.svg",
+    "static/media/icon-up.359200b2.svg": "/atd-social-media-dashboard-with-theme-switcher-master/static/media/icon-up.359200b2.svg",
+    "static/media/icon-youtube.cad14335.svg": "/atd-social-media-dashboard-with-theme-switcher-master/static/media/icon-youtube.cad14335.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a23c5a13.js",
+    "static/js/2.9d287907.chunk.js",
+    "static/css/main.42d4bfd9.chunk.css",
+    "static/js/main.e4317620.chunk.js"
+  ]
+}
