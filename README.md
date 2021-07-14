@@ -1,93 +1,128 @@
-# Frontend Mentor - Social media dashboard with theme switcher
+# Frontend Mentor - Social media dashboard with theme switcher solution
 
-![Design preview for the Social media dashboard with theme switcher coding challenge](./design/desktop-preview.jpg)
+This is a solution to the [Social media dashboard with theme switcher challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/social-media-dashboard-with-theme-switcher-6oY8ozp_H). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
-## Welcome! 👋
+## Table of contents
 
-Thanks for checking out this front-end coding challenge.
+- [Frontend Mentor - Social media dashboard with theme switcher solution](#frontend-mentor---social-media-dashboard-with-theme-switcher-solution)
+  - [Table of contents](#table-of-contents)
+  - [Overview](#overview)
+    - [The challenge](#the-challenge)
+    - [Links](#links)
+  - [My process](#my-process)
+    - [Built with](#built-with)
+    - [What I learned](#what-i-learned)
+      - [Gradient border](#gradient-border)
+      - [Creating a toggler](#creating-a-toggler)
+      - [Light/dark mode switching](#lightdark-mode-switching)
+    - [Continued development](#continued-development)
+    - [Useful resources](#useful-resources)
+  - [Author](#author)
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
+**Note: Delete this note and update the table of contents based on what sections you keep.**
 
-**To do this challenge, you need a basic understanding of HTML, CSS and a tiny bit of JavaScript.**
+## Overview
 
-## The challenge
+### The challenge
 
-Your challenge is to build out this Social Media Dashboard and get it looking as close to the design as possible.
-
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
-
-Your users should be able to:
+Users should be able to:
 
 - View the optimal layout for the site depending on their device's screen size
 - See hover states for all interactive elements on the page
 - Toggle color theme to their preference
 
-Want some support on the challenge? [Join our Slack community](https://www.frontendmentor.io/slack) and ask questions in the **#help** channel.
+### Links
 
-## Where to find everything
+- Solution URL: [https://github.com/atran14/atd-social-media-dashboard-with-theme-switcher-master](https://github.com/atran14/atd-social-media-dashboard-with-theme-switcher-master)
+- Live Site URL: [https://atran14.github.io/atd-social-media-dashboard-with-theme-switcher-master/](https://atran14.github.io/atd-social-media-dashboard-with-theme-switcher-master/)
 
-Your task is to build out the project to the designs inside the `/design` folder. You will find both a mobile and a desktop version of the design. 
+## My process
 
-The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`. 
+### Built with
 
-If you would like the design files (we provide Sketch & Figma versions) to inspect the design in more detail, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- CSS Grid
+- Desktop-first workflow
+- [React](https://reactjs.org/) - JS library
 
-You will find all the required assets in the `/images` folder. The assets are already optimized.
+### What I learned
+#### Gradient border
 
-There is also a `style-guide.md` file containing the information you'll need, such as color palette and fonts.
+I really didn't expect this to be hard until *the* 3rd card. At first, I initially thought that using the familiar `border`-related property would suffice. Unfortunately, it didn't work with the Instagram stats card (since it uses a gradient border), so that idea was quickly scrapped. What ultimately help me (after numerous trials and errors) was... simpler than I thought it would be: have a `<div>` wrapper with said gradient background, with its height *a tad* higher than its contents (which will house the actual content of the card).
 
-## Building your project
+```tsx
+<div
+   style={{
+     position: 'relative',
+     background: primaryColor,
+     padding:"3px 0 0 0",
+     borderRadius: "5px",
+     overflow:'hidden'
+   }}
+>
+   <div className="overall-stats__item">
+     // < contents here >
+   </div>
+</div>
+```
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+#### Creating a toggler
 
-1. Initialize your project as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/).
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+This is out of my field, so I did end up referencing a few tutorials on how to create one. Essentially, it's a disguised checkbox-`<input>` with a accompanying `<label>` that would be the main way to style it to look like the toggler. The ball inside is using the `<label>`'s `::after` pseudo-element
 
-## Deploying your project
+#### Light/dark mode switching
 
-As mentioned above, there are many ways to host your project for free. Our recommend hosts are:
+It was quite interesting seeing how one could use CSS variable to enable dark/light mode of a site. I have two CSS classes, `.light` and `.dark`, with each containing same set of variables for each component of the page. The difference lies in the fact that each variable will be assigned different color schemes suitable for dark/light theme. These classes are applied to the root of the app, so that it and its descendant can utilize them using `var()`.
 
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
+```scss
+.light {
+    --bg: #{$clr-neutral-bg--light-theme};
+    --bg-top: #{$clr-neutral-card-bg--light-theme};
+    --card-bg: #{$clr-neutral-card-bg--light-theme};
+    --text-primary: #{$clr-neutral-text-blue-very-dark--light-theme};
+    --text-neutral: #{$clr-neutral-text-blue-grayish-dark--light-theme};
+}
 
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://medium.com/frontend-mentor/frontend-mentor-trusted-hosting-providers-bf000dfebe).
+.dark {
+    --bg: #{$clr-neutral-bg--dark-theme};
+    --bg-top: #{$clr-neutral-card-bg--dark-theme};
+    --card-bg: #{$clr-neutral-card-bg--dark-theme};
+    --text-primary: #{$clr-neutral-text-white--dark-theme};
+    --text-neutral: #{$clr-neutral-text-blue--dark-theme};
+}
 
-## Create a custom `README.md`
+.app {
+    ...
+    background-color: var(--bg);
+    ...
+}
 
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
+body {
+    background: var(--bg);
+}
 
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
+.main-bg {
+    ...
+    background-color: var(--bg-top);
+}
 
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
+etc.
+```
 
-## Submitting your solution
+### Continued development
 
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://medium.com/frontend-mentor/a-complete-guide-to-submitting-solutions-on-frontend-mentor-ac6384162248) for tips on how to do this.
+It would be a pain in the butt to have to enable dark mode every time the user reloads the page. I will explore ways to remember the user's preference.
+In addition, I'm probably going to start exploring Styled Components and also Next.js React library. Aside from being useful for creating static sites, they seems to be interesting, personally.
 
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
+### Useful resources
 
-## Sharing your solution
+- [Gradient Borders in CSS | CSS-Tricks](https://css-tricks.com/gradient-borders-in-css/) - How I was able to achieve the gradient border.
+- [CSSで作るToggle Switchを学んだのでさっそく作ってみた](https://qiita.com/deren2525/items/39d151e0cf31d1bd231c) - This guide on how to create a simple toggler (note: it's in Japanese - also a way for me to brush up my reading skills, so two bird one stone 😜).
+- [CSS Theme Switcher by Reverse-Engineering Alligator.io - by FireShip](https://www.youtube.com/watch?v=rXuHGLzSmSE&t=310s&ab_channel=Fireship) - FireShip has never let me down as my personal go-to YouTube channel for anything web developer, and this video breaking down on how to create a theme switcher is no exception. Definitely worth checking it out.
 
-There are multiple places you can share your solution:
+## Author
 
-1. Share your solution page in the **#finished-projects** channel of the [Slack community](https://www.frontendmentor.io/slack). 
-2. Tweet [@frontendmentor](https://twitter.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in the tweet. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on other social channels like LinkedIn.
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
-
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback. 
-
-The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
-
-## Got feedback for us?
-
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
-
-This challenge is completely free. Please share it with anyone who will find it useful for practice.
-
-**Have fun building!** 🚀
+- Frontend Mentor - [@atran14](https://www.frontendmentor.io/profile/atran14)
+- GitHub - [atran14](https://github.com/atran14)
