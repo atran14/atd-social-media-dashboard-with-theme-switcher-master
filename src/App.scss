@@ -1,0 +1,125 @@
+@use "./shared/styles/helpers" as *;
+
+.light {
+    --bg: #{$clr-neutral-bg--light-theme};
+    --bg-top: #{$clr-neutral-card-bg--light-theme};
+    --card-bg: #{$clr-neutral-card-bg--light-theme};
+    --text-primary: #{$clr-neutral-text-blue-very-dark--light-theme};
+    --text-neutral: #{$clr-neutral-text-blue-grayish-dark--light-theme};
+}
+
+.dark {
+    --bg: #{$clr-neutral-bg--dark-theme};
+    --bg-top: #{$clr-neutral-card-bg--dark-theme};
+    --card-bg: #{$clr-neutral-card-bg--dark-theme};
+    --text-primary: #{$clr-neutral-text-white--dark-theme};
+    --text-neutral: #{$clr-neutral-text-blue--dark-theme};
+}
+
+.app {
+    position: absolute;
+    width: 100vw;
+    height: auto;
+    background-color: var(--bg);
+    z-index: -1;
+}
+
+.main-bg {
+    position: absolute;
+    border-radius: 0 0 25px 25px;
+    overflow: hidden;
+    width: 100vw;
+    height: 15rem;
+    top: 0;
+    z-index: -1;
+    background-color: var(--bg-top);
+}
+
+.wrapper {
+    margin: 0 10%;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2rem 0;
+
+    @include bp-small-devices {
+        align-items: unset;
+        flex-direction: column;
+    }
+}
+
+.main-header-container {
+    h1,
+    p {
+        line-height: 1.3;
+    }
+
+    h1 {
+        font-size: clamp(1.4rem, 0.3rem + 3.85vw, 2.5rem);
+        color: var(--text-primary);
+    }
+
+    p {
+        font-size: clamp(0.84rem, 0.41rem + 1.505vw, 1.27rem);
+        font-weight: 700;
+        color: var(--text-neutral);
+    }
+}
+
+.divider {
+    display: none;
+
+    @include bp-small-devices {
+        display: block;
+        margin: 10px 0;
+        border-top: solid 2px $clr-neutral-text-blue-grayish-dark--light-theme;
+    }
+}
+
+.toggle-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    > * {
+        margin: 0 10px;
+    }
+
+    @include bp-small-devices {
+        justify-content: space-between;
+
+        > * {
+            margin: 0;
+        }
+    }
+
+    p {
+        font-weight: 700;
+        font-size: clamp(0.8rem, 0.6rem + 0.7vw, 1rem);
+        color: var(--text-neutral);
+
+        // @include bp-small-devices {
+        //     color: $clr-neutral-text-blue-grayish-dark--light-theme;
+        // }
+    }
+}
+
+.overall-stats, .detail-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    column-gap: 2rem;
+    row-gap: 2rem;
+    margin: 2.5rem 0;
+}
+
+h2 {
+    font-size: 2.2rem;
+    margin: 1rem 0;
+    color: var(--text-primary);
+}
+
+footer {
+    color: var(--text-primary);
+}

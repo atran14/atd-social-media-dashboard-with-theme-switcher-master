@@ -1,0 +1,42 @@
+@use './../../styles/helpers' as *;
+
+.toggle-container__the-toggle {
+    position: relative;
+
+    label {
+        width: 65px;
+        height: 30px;
+        background: $clr-primary-toggle--light-theme;
+        display: inline-block;
+        border-radius: 46px;
+        transition: 200ms;
+        cursor: pointer;
+    }
+
+    label::after {
+        content: "";
+        position: absolute;
+        height: 23px;
+        width: 23px;
+        right: 5px;
+        top: 3.5px;
+        border-radius: 100%;
+        background: var(--bg-top);
+        transition: 200ms;
+        z-index: 2;
+    }
+
+    input {
+        display: none;
+    }
+
+    input:checked {
+        + label {
+            background: $clr-primary-toggle--dark-theme;
+        }
+
+        + label::after {
+            right: 2.5px + 35px;
+        }
+    }
+}

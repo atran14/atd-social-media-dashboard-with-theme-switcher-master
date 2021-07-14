@@ -1,0 +1,51 @@
+@use "./../../styles/helpers" as *;
+@use "./CardState";
+
+.detail-stats__item {
+    display: grid;
+    grid-template-areas:
+        "heading . icon"
+        "number . percent";
+    row-gap: 1.25rem;
+    padding: 1.5rem 1.75rem;
+    justify-content: space-between;
+    align-content: space-between;
+    background: var(--card-bg);
+    border-radius: 5px;
+
+    div:first-child {
+        grid-area: heading;
+        color: var(--text-neutral);
+        font-size: 1.25rem;
+        font-weight: 700;
+        text-transform: capitalize;
+    }
+
+    div:nth-child(2) {
+        grid-area: icon;        
+    }
+
+    div:nth-child(3) {
+        grid-area: number;
+        p {
+            font-weight: 700;
+            font-size: 2.5rem;
+            color: var(--text-primary);
+        }
+    }
+
+    div:last-child {
+        grid-area: percent;
+        display: flex;
+        align-items: flex-end;
+        font-weight: 700;
+
+        svg {
+            vertical-align: text-bottom;
+        }
+    }
+}
+
+.icon {
+    text-align: end;
+}

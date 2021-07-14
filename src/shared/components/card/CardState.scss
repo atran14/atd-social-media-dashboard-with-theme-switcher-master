@@ -1,0 +1,13 @@
+@use "../../styles/helpers" as *;
+
+.increase {
+    color: $clr-primary-green-lime;
+}
+
+.decrease {
+    color: $clr-primary-red-bright;
+}
+
+.no-change {
+    color: $clr-neutral-text-blue-grayish-dark--light-theme;
+}
